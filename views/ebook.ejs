@@ -1,0 +1,47 @@
+<html>
+  <body>
+    <h1>
+        Books Library
+    </h1>
+
+    <ul>
+        <% book.map((i) => {
+            %> 
+            <li onclick="toggleDetail()"><%=i.id%> book</li>
+        <div id="detail" style="display:none">
+            <li><%=i.author%></li>
+            <li><%=i.country%></li>
+            <li><%=i.language%></li>
+            <li><%=i.imageLink%></li>
+            <li><%=i.link%></li>
+            <li><%=i.pages%></li>
+            <li><%=i.title%></li>
+            <li><%=i.year%></li>
+            
+        </div>
+        <button id="close" onclick="toggleDetail()">afficher</button>
+            <%
+
+        })
+        %> 
+       <!-- <a href="/mybook" class="btn-oval">Learn more</a> -->
+
+        
+    </ul>
+
+  </body>
+  <script>
+    function toggleDetail(){
+        var bookDetail= document.getElementById("detail")
+        var button = document.getElementById("close")
+        if (bookDetail.style.display === "none"){
+            bookDetail.style.display = "block"
+            button.innerHTML="fermer"
+        }
+        else {
+            bookDetail.style.display = "none"
+            button.innerHTML="afficher"
+        }
+    }
+  </script>
+</html>
